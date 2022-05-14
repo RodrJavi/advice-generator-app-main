@@ -1,0 +1,60 @@
+:root {
+    --cyan: hsl(193, 38%, 86%);
+    --neonGreen: hsl(150, 100%, 66%);
+    --grayBlue: hsl(217, 19%, 38%);
+    --dGrayBlue: hsl(217, 19%, 24%);
+    --dBlue: hsl(218, 23%, 16%);
+}
+
+
+html {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+body {
+    background-color: var(--dBlue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    
+}
+
+.wordBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dGrayBlue);
+    border-radius: .75em;
+    padding: 2em 2em 0em 2em;
+    max-width: 280px;
+}
+
+p {
+    font-family: 'Manrope', sans-serif;
+    color: var(--neonGreen);
+    letter-spacing: .25em;
+}
+
+h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--cyan);
+    text-align: center;
+}
+
+.action {
+    border-radius: 100%;
+    background-color: var(--neonGreen);
+    transform: translate(0, 2em);
+    padding: 1.25em;
+    display: flex;
+}
+
+.action:hover {
+    box-shadow: 0px 0px 2em var(--neonGreen);
+}
