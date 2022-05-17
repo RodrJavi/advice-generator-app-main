@@ -18,12 +18,12 @@
 
 </head>
 
-<body onload="loadAdv()">
+<body>
 
   <div class="wordBlock">
-    <p id="advice-num">Advice #</p>
+    <p id="number">ADVICE #</p>
 
-    <h2 id="advice-text">"Typical politician... Big cock... But no cum"</h2>
+    <h2 id="text">"Typical politician... Big cock... But no cum"</h2>
 
     <img src="images/pattern-divider-mobile.svg" alt="dividing lines">
 
@@ -34,26 +34,22 @@
 
   <script>
 
-    
+    const number = document.getElementById("number");
 
-    function loadAdv() {
-      const quote = new XMLHttpRequest();
+    const url = "https://api.adviceslip.com/advice";
 
-      quote.onload = function () {
-        var quoteArr = JSON.parse(this.responseText);
-        console.log(quoteArr);
-        document.getElementById("advice-num").innerHTML = "Advice #" + quoteArr.slip.id;
-        document.getElementById("advice-text").innerHTML = quoteArr.slip.advice;
-        console.log("hello");
-      }
-
-
-      quote.open("GET", "https://api.adviceslip.com/advice");
-      quote.send();
+    async function getAdvice() {
+      const res = await fetch(url);
+      const advice = await res.json();
+      console.log(advice);
+      document.getElementById("number").innerHTML = "ADVICE #" + advice.slip.id;
+      document.getElementById("text").innerHTML = advice.slip.advice;
     }
 
+    getAdvice();
+
     const quoteButton = document.getElementById("quoteButton");
-    quoteButton.addEventListener("click", loadAdv);
+    quoteButton.addEventListener("click", getAdvice);
 
 
   </script>
